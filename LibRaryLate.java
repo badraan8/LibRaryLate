@@ -2,7 +2,6 @@ import java.util.ArrayList;
 import java.util.Scanner;
 public class LibRaryLate {
     abstract static class Library {
-
         String title;
         int daysLate;
         Library(String title, int daysLate) {
@@ -12,7 +11,6 @@ public class LibRaryLate {
         abstract int calculateFine();
     }
     static class Book extends Library {
-
         Book(String title, int daysLate) {
             super(title, daysLate);
         }
@@ -22,7 +20,6 @@ public class LibRaryLate {
         }
     }
     static class DVD extends Library {
-
         DVD(String title, int daysLate) {
             super(title, daysLate);
         }
@@ -31,15 +28,12 @@ public class LibRaryLate {
             if (daysLate == 0) {
                 return 0;
             }
-
             return 10 + daysLate * 5;
         }
     }
     public static void main(String[] args) {
-
         Scanner input = new Scanner(System.in);
         ArrayList<Library> library = new ArrayList<>();
-
         System.out.print("How many returned items? ");
         int n = input.nextInt();
         while (n < 1 || n > 100) {
@@ -47,16 +41,14 @@ public class LibRaryLate {
             n = input.nextInt();
         }
         for (int i = 1; i <= n; i++) {
-
             System.out.println("Item " + i);
-
             System.out.print("Type (B/D): ");
             String type = input.next().toUpperCase();
             while (!type.equals("B") && !type.equals("D")) {
                 System.out.print("Invalid type! Enter B or D: ");
                 type = input.next().toUpperCase();
             }
-
+            
             System.out.print("Title: ");
             String title = input.next();
 
@@ -87,7 +79,5 @@ public class LibRaryLate {
             total += fine;
         }
         System.out.println("Total fines: " + total + " units");
-
-        input.close();
     }
 }
